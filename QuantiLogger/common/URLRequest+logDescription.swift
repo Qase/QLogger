@@ -10,6 +10,6 @@ import Foundation
 
 extension URLRequest {
 	var logDescription: String {
-		return "Request: {url: \(url?.description ?? "nil"), method: \(httpMethod?.description ?? "nil"), headersFields: \(allHTTPHeaderFields?.description ?? "nil")}"
+		"Request: {url: \(url?.description ?? "nil"), method: \(httpMethod?.description ?? "nil"), headersFields: \(allHTTPHeaderFields?.description ?? "nil")}"
 	}
 }

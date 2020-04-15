@@ -60,7 +60,7 @@ class MetaInformationLogger {
 	}
 
 	private var language: String? {
-		return Locale.current.languageCode
+		Locale.current.languageCode
 	}
 
 	private func values(for dataToLog: [MetaInformationType]) -> [String: String] {

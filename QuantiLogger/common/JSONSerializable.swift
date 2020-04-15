@@ -77,7 +77,7 @@ extension JSONSerializable {
 // enables to serialize [JSONSerializable]. This method does so!
 extension Array: JSONSerializable {
 	var jsonRepresentation: AnyObject {
-		return self.map { (element) -> AnyObject in
+		self.map { (element) -> AnyObject in
 			if let _element = element as? JSONRepresentable {
 				return _element.jsonRepresentation
 			}

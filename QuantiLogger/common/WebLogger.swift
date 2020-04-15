@@ -15,7 +15,7 @@ struct LogEntry: JSONSerializable {
     let sessionName: String
 
     var jsonRepresentation: AnyObject {
-        return [
+        [
 			"severity": serverLevelName(for: level),
             "timestamp": timestamp,
             "message": message,
@@ -51,7 +51,7 @@ struct LogEntryBatch: JSONSerializable {
     }
 
     var jsonRepresentation: AnyObject {
-        return logs.jsonRepresentation
+        logs.jsonRepresentation
     }
 
 }

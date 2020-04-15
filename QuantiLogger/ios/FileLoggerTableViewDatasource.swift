@@ -29,11 +29,11 @@ open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return gettingCell(tableView, forRowAt: indexPath, withLogFileRecord: logFilesRecords[indexPath.row])
+        gettingCell(tableView, forRowAt: indexPath, withLogFileRecord: logFilesRecords[indexPath.row])
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logFilesRecords.count
+        logFilesRecords.count
     }
 
     public func reload() {

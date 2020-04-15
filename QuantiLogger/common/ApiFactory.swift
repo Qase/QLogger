@@ -146,7 +146,7 @@ extension ApiFactory {
 	///   - session: Session in which the request should be sent.
 	/// - Returns: .completed if request success, ApiError otherwise.
 	static func noData(`for` request: URLRequest?, `in` session: URLSession) -> Observable<Void> {
-		return data(for: request, in: session).flatMap { _ in Observable.just(()) }
+		data(for: request, in: session).flatMap { _ in Observable.just(()) }
 	}
 
 	/// Method to receive a JSON response based on a provided URL request.
@@ -156,7 +156,7 @@ extension ApiFactory {
 	///   - session: Session in which the request should be sent.
 	/// - Returns: JSON data if received and parsed successfully, ApiError instance otherwise.
 	static func json<T: JSONParseable>(`for` request: URLRequest?, `in` session: URLSession) -> Observable<T> {
-		return data(for: request, in: session)
+		data(for: request, in: session)
 			.flatMap { data -> Observable<T> in
 				Observable.create { observer in
 					do {

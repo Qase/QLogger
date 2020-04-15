@@ -27,10 +27,10 @@ struct DateHelper {
     }()
 
     static func toFullDateTimeString(from date: Date) -> String {
-        return DateHelper.dateTimeFormatter.string(from: date)
+        DateHelper.dateTimeFormatter.string(from: date)
     }
 
     static func toFullDateString(from date: Date) -> String {
-        return DateHelper.dateFormatter.string(from: date)
+        DateHelper.dateFormatter.string(from: date)
     }
 }

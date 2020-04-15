@@ -59,7 +59,7 @@ public class LogManager {
 	///
 	/// - Returns: the logger if exists, nil otherwise
 	public func logger<T: Logging>() -> T? {
-		return loggers.compactMap { $0 as? T }.first
+		loggers.compactMap { $0 as? T }.first
 	}
 
     /// Method to register a new custom or pre-build logger.

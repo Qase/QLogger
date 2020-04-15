@@ -151,7 +151,7 @@ class ApplicationCallbackLogger {
 	///   - newCallbacks: new array of callbacks
 	/// - Returns: array of callbacks to be removed
 	private func getCallbacksToRemove(from oldCallbacks: [ApplicationCallbackType]?, basedOn newCallbacks: [ApplicationCallbackType]?) -> [ApplicationCallbackType] {
-		return oldCallbacks?.filter { !(newCallbacks?.contains($0) ?? false) } ?? []
+		oldCallbacks?.filter { !(newCallbacks?.contains($0) ?? false) } ?? []
 	}
 
 	/// Method to get array of callbacks to add (thus those, who are in newCallbacks but not in oldCallbacks).
@@ -162,7 +162,7 @@ class ApplicationCallbackLogger {
 	///   - oldCallbacks: old array of callbacks
 	/// - Returns: array of callbacks to be added
 	private func getCallbacksToAdd(from newCallbacks: [ApplicationCallbackType]?, basedOn oldCallbacks: [ApplicationCallbackType]?) -> [ApplicationCallbackType] {
-		return newCallbacks?.filter { !(oldCallbacks?.contains($0) ?? false) } ?? []
+		newCallbacks?.filter { !(oldCallbacks?.contains($0) ?? false) } ?? []
 	}
 
 	/// Method to remove specific Application's notification callbacks

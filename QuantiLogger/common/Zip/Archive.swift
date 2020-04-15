@@ -258,12 +258,12 @@ extension Archive {
     /// - Parameter entry: The entry that will be removed.
     /// - Returns: The number of the work units.
     public func totalUnitCountForRemoving(_ entry: Entry) -> Int64 {
-        return Int64(self.endOfCentralDirectoryRecord.offsetToStartOfCentralDirectory
+        Int64(self.endOfCentralDirectoryRecord.offsetToStartOfCentralDirectory
                    - UInt32(entry.localSize))
     }
 
     func makeProgressForRemoving(_ entry: Entry) -> Progress {
-        return Progress(totalUnitCount: self.totalUnitCountForRemoving(entry))
+        Progress(totalUnitCount: self.totalUnitCountForRemoving(entry))
     }
 
     /// The number of the work units that have to be performed when
@@ -281,7 +281,7 @@ extension Archive {
     }
 
     func makeProgressForReading(_ entry: Entry) -> Progress {
-        return Progress(totalUnitCount: self.totalUnitCountForReading(entry))
+        Progress(totalUnitCount: self.totalUnitCountForReading(entry))
     }
 
     /// The number of the work units that have to be performed when
@@ -305,7 +305,7 @@ extension Archive {
     }
 
     func makeProgressForAddingItem(at url: URL) -> Progress {
-        return Progress(totalUnitCount: self.totalUnitCountForAddingItem(at: url))
+        Progress(totalUnitCount: self.totalUnitCountForAddingItem(at: url))
     }
 }
 

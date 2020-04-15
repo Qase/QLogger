@@ -252,7 +252,7 @@ extension Date {
     }
 
     var fileModificationDateTime: (UInt16, UInt16) {
-        return (self.fileModificationDate, self.fileModificationTime)
+        (self.fileModificationDate, self.fileModificationTime)
     }
 
     var fileModificationDate: UInt16 {

@@ -92,16 +92,16 @@ public struct Entry: Equatable {
         let fileNameData: Data
         let extraFieldData: Data
         let fileCommentData: Data
-        var usesDataDescriptor: Bool { return (self.generalPurposeBitFlag & (1 << 3 )) != 0 }
-        var isZIP64: Bool { return self.versionNeededToExtract >= 45 }
-        var isEncrypted: Bool { return (self.generalPurposeBitFlag & (1 << 0)) != 0 }
+        var usesDataDescriptor: Bool { (self.generalPurposeBitFlag & (1 << 3 )) != 0 }
+        var isZIP64: Bool { self.versionNeededToExtract >= 45 }
+        var isEncrypted: Bool { (self.generalPurposeBitFlag & (1 << 0)) != 0 }
     }
     /// Returns the `path` of the receiver within a ZIP `Archive` using a given encoding.
     ///
     /// - Parameters:
     ///   - encoding: `String.Encoding`
     public func path(using encoding: String.Encoding) -> String {
-        return String(data: self.centralDirectoryStructure.fileNameData, encoding: encoding) ?? ""
+        String(data: self.centralDirectoryStructure.fileNameData, encoding: encoding) ?? ""
     }
     /// The `path` of the receiver within a ZIP `Archive`.
     public var path: String {
@@ -117,7 +117,7 @@ public struct Entry: Equatable {
     ///
     /// Contains the modification date and file permissions.
     public var fileAttributes: [FileAttributeKey: Any] {
-        return FileManager.attributes(from: self)
+        FileManager.attributes(from: self)
     }
     /// The `CRC32` checksum of the receiver.
     ///
@@ -158,11 +158,11 @@ public struct Entry: Equatable {
     }
     /// The size of the receiver's compressed data.
     public var compressedSize: Int {
-        return Int(dataDescriptor?.compressedSize ?? localFileHeader.compressedSize)
+        Int(dataDescriptor?.compressedSize ?? localFileHeader.compressedSize)
     }
     /// The size of the receiver's uncompressed data.
     public var uncompressedSize: Int {
-        return Int(dataDescriptor?.uncompressedSize ?? localFileHeader.uncompressedSize)
+        Int(dataDescriptor?.uncompressedSize ?? localFileHeader.uncompressedSize)
     }
     /// The combined size of the local header, the data and the optional data descriptor.
     var localSize: Int {
@@ -187,7 +187,7 @@ public struct Entry: Equatable {
     let dataDescriptor: DataDescriptor?
 
     public static func == (lhs: Entry, rhs: Entry) -> Bool {
-        return lhs.path == rhs.path
+        lhs.path == rhs.path
             && lhs.localFileHeader.crc32 == rhs.localFileHeader.crc32
             && lhs.centralDirectoryStructure.relativeOffsetOfLocalHeader
             == rhs.centralDirectoryStructure.relativeOffsetOfLocalHeader

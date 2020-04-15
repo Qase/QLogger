@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
         // Loggers setup
         let logManager = LogManager.shared
 
@@ -28,13 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fileLogger = FileLogger()
         fileLogger.levels = [.error, .warn]
         _ = logManager.add(fileLogger)
-
-        //logManager.add(CrashLyticsLogger())
-
-//        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
-//        systemLogger.levels = [.error, .warn]
-//        logManager.add(systemLogger)
-
+        
         QLog("test", onLevel: .warn)
         QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)
 

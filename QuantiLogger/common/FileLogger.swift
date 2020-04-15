@@ -19,13 +19,16 @@ public class FileLogger: Logging {
         }
     }
 
-    // Url of the zip file containing all log files.
+    public var archivedLogFilesSize: Int? {
+        fileLoggerManager.archivedLogFilesSize
+    }
+
     public var archivedLogFilesUrl: URL? {
-        return fileLoggerManager.archivedLogFilesUrl
+        fileLoggerManager.archivedLogFilesUrl
     }
 
     public var archivedLogFiles: Archive? {
-        return fileLoggerManager.archivedLogFiles
+        fileLoggerManager.archivedLogFiles
     }
 
 	public var levels: [Level] = [.info]
